@@ -2,5 +2,7 @@ package com.dmitrybondarev.stockexchanger;
 
 public interface TradingGateway {
 
-    boolean addOrder(Order order);
+    int addOrder(Order order);
+
+    boolean cancelOrder(int id);
 }
