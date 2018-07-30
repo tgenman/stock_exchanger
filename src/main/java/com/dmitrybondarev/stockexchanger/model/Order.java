@@ -24,11 +24,11 @@ public class Order implements Comparable<Order> {
         this.volume = volume;
     }
 
-    public Order createBuyOrder(String company, int price, int volume) {
+    public static Order createBuyOrder(String company, int price, int volume) {
         return new Order(company, Action.BUY, price, volume);
     }
 
-    public Order createSellOrder(String company, int price, int volume) {
+    public static Order createSellOrder(String company, int price, int volume) {
         return new Order(company, Action.SELL, price, volume);
     }
 
@@ -52,7 +52,7 @@ public class Order implements Comparable<Order> {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    void setVolume(int volume) {
         this.volume = volume;
     }
 
@@ -90,15 +90,10 @@ public class Order implements Comparable<Order> {
 
     @Override
     public String toString() {
-        return "Order idOrder=" + idOrder +
-                ", company='" + company + '\'' +
+        return "Order id=" + idOrder +
+                ", " + company + '\'' +
                 ", " + actionOfOrder +
                 ", price=" + price +
                 ", volume=" + volume;
-    }
-
-    public enum Action {
-        BUY,
-        SELL
     }
 }
