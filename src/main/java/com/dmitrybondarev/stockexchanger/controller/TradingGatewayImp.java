@@ -50,6 +50,7 @@ public class TradingGatewayImp implements TradingGateway {
         Timer timer = new Timer();
         timer.schedule(matchingEngine, 1000, 1000);
 
+//      Closing program
         try {
             cLIThread.join();
         } catch (InterruptedException e) {

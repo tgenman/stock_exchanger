@@ -70,9 +70,9 @@ public class CLI implements Runnable {
         int id = Integer.parseInt(query[2]);
         boolean result = tradingGateway.removeOrder(company, id);
         if (result) {
-            System.out.println("Order ID = " + id + " wasn't found.");
-        } else {
             System.out.println("Order ID = " + id + " was removed.");
+        } else {
+            System.out.println("Order ID = " + id + " wasn't found.");
         }
     }
 

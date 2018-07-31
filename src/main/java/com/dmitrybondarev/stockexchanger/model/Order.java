@@ -92,10 +92,10 @@ public class Order implements Comparable<Order> {
 
     @Override
     public String toString() {
-        return "Order id=" + idOrder
-                + ", " + company + '\''
-                + ", " + actionOfOrder
-                + ", price=" + price
-                + ", volume=" + volume;
+        return "Order: id=" + idOrder
+                + " " + company
+                + " " + actionOfOrder
+                + " price=" + price
+                + " volume=" + volume;
     }
 }
