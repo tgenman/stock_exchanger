@@ -3,6 +3,9 @@ package com.dmitrybondarev.stockexchanger.model;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Test of Trade class.
+ */
 public class TradeTest {
 
     @Test

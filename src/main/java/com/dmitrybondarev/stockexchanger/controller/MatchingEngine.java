@@ -10,13 +10,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TimerTask;
 
+/**
+ * Balances the order books periodically.
+ */
 public class MatchingEngine extends TimerTask {
 
     private DataBase dataBase;
 
     private TradeLedger tradeLedger;
 
-    public MatchingEngine(DataBase dataBase, TradeLedger tradeLedger) {
+    MatchingEngine(DataBase dataBase, TradeLedger tradeLedger) {
         this.dataBase = dataBase;
         this.tradeLedger = tradeLedger;
     }
@@ -55,24 +58,6 @@ public class MatchingEngine extends TimerTask {
                 }
             }
         }
-
-
-
-
-
-
-//        for (Order buyOrder: buyOrders) {
-//            if (buyOrder.getVolume() == 0) continue;
-//            for (Order sellOrder: sellOrders) {
-//                if (sellOrder.getVolume() == 0) continue;
-//                if (buyOrder.getPrice() < sellOrder.getPrice()) {
-//                    break;
-//                }
-//                if (sellOrder.getPrice() <= buyOrder.getPrice()) {
-//                    tradeLedger.addTrade(new Trade(buyOrder, sellOrder));
-//                }
-//            }
-//        }
     }
 }
 

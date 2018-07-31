@@ -8,6 +8,9 @@ import com.dmitrybondarev.stockexchanger.view.CLI;
 
 import java.util.Timer;
 
+/**
+ * Allows a client to trade on the market.
+ */
 public class TradingGatewayImp implements TradingGateway {
 
     private DataBase dataBase;
@@ -40,7 +43,6 @@ public class TradingGatewayImp implements TradingGateway {
 
         Timer timer = new Timer();
         timer.schedule(matchingEngine, 1000, 1000);
-
         new CLI(new TradingGatewayImp(dataBase)).start();
         timer.cancel();
     }

@@ -2,6 +2,9 @@ package com.dmitrybondarev.stockexchanger.model;
 
 import java.util.Objects;
 
+/**
+ * Order for buying or selling stocks.
+ */
 public class Order implements Comparable<Order> {
 
     private static int counterIdOrder = 1;
@@ -32,15 +35,15 @@ public class Order implements Comparable<Order> {
         return new Order(company, Action.SELL, price, volume);
     }
 
-    public int getId() {
+    int getId() {
         return idOrder;
     }
 
-    public String getCompany() {
+    String getCompany() {
         return company;
     }
 
-    public Action getActionOfOrder() {
+    Action getActionOfOrder() {
         return actionOfOrder;
     }
 
@@ -84,7 +87,6 @@ public class Order implements Comparable<Order> {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(idOrder, company, actionOfOrder, price, volume);
     }
 

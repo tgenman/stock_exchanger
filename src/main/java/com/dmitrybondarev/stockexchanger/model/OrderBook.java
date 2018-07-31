@@ -3,6 +3,9 @@ package com.dmitrybondarev.stockexchanger.model;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Contain all orders for a certain stock.
+ */
 public class OrderBook {
 
     private final String name;
@@ -45,10 +48,6 @@ public class OrderBook {
             }
         }
         return false;
-    }
-
-    public String getName() {
-        return name;
     }
 }
 

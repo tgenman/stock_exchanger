@@ -2,9 +2,11 @@ package com.dmitrybondarev.stockexchanger.model;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.List;
 
+/**
+ * Test of OrderBook class.
+ */
 public class OrderBookTest {
 
     @Test

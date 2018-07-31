@@ -3,6 +3,9 @@ package com.dmitrybondarev.stockexchanger.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Represent the details of two opposite orders crossing with each other.
+ */
 public class Trade {
 
     private final static SimpleDateFormat SIMPLE_DATE_FORMAT
@@ -24,7 +27,11 @@ public class Trade {
 
     private final int sellOrderId;
 
-
+    /**
+     * Create Trade and change order's volume.
+     * @param buyOrder Order
+     * @param sellOrder Order
+     */
     public Trade(Order buyOrder, Order sellOrder) {
         this.idTrade = counterIDTrade++;
         this.date = new Date();

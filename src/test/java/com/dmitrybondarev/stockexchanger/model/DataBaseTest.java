@@ -2,9 +2,11 @@ package com.dmitrybondarev.stockexchanger.model;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.Collection;
 
+/**
+ * Test of DataBase class.
+ */
 public class DataBaseTest {
 
     @Test

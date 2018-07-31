@@ -6,6 +6,9 @@ import com.dmitrybondarev.stockexchanger.model.Order;
 
 import java.util.Scanner;
 
+/**
+ * Command Line Interface.
+ */
 public class CLI {
 
     private Scanner scanner = new Scanner(System.in);

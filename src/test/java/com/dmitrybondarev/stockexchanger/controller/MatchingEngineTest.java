@@ -7,6 +7,9 @@ import com.dmitrybondarev.stockexchanger.model.TradeLedger;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Test of MatchingEngine class.
+ */
 public class MatchingEngineTest {
 
     @Test

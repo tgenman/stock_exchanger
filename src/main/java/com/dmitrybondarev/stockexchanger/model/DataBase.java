@@ -4,6 +4,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Container for all OrderBooks.
+ */
 public class DataBase {
 
     private final Map<String, OrderBook> orderBooks = new HashMap<>();
