@@ -75,11 +75,11 @@ public class Order implements Comparable<Order> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return idOrder == order.idOrder &&
-                price == order.price &&
-                volume == order.volume &&
-                Objects.equals(company, order.company) &&
-                actionOfOrder == order.actionOfOrder;
+        return idOrder == order.idOrder
+                && price == order.price
+                && volume == order.volume
+                && Objects.equals(company, order.company)
+                && actionOfOrder == order.actionOfOrder;
     }
 
     @Override
@@ -90,10 +90,10 @@ public class Order implements Comparable<Order> {
 
     @Override
     public String toString() {
-        return "Order id=" + idOrder +
-                ", " + company + '\'' +
-                ", " + actionOfOrder +
-                ", price=" + price +
-                ", volume=" + volume;
+        return "Order id=" + idOrder
+                + ", " + company + '\''
+                + ", " + actionOfOrder
+                + ", price=" + price
+                + ", volume=" + volume;
     }
 }

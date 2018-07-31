@@ -59,7 +59,7 @@ public class CLI {
         System.out.println("remove");
     }
 
-    private Action parseAction(String str) throws Exception{
+    private Action parseAction(String str) throws Exception {
         if (str.equals("B")) {
             return Action.BUY;
         } else if (str.equals("S")) {

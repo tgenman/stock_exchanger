@@ -32,19 +32,19 @@ public class Trade {
         this.buyOrderId = buyOrder.getIdOrder();
         this.sellOrderId = sellOrder.getIdOrder();
         this.priceOfTrade = buyOrder.getPrice();
-        this.volumeOfTrade = calculateVolumeOfTrade(buyOrder,sellOrder);
+        this.volumeOfTrade = calculateVolumeOfTrade(buyOrder, sellOrder);
         buyOrder.setVolume(buyOrder.getVolume() - volumeOfTrade);
         sellOrder.setVolume(sellOrder.getVolume() - volumeOfTrade);
     }
 
     public String toString() {
-        return SIMPLE_DATE_FORMAT.format(date) +
-                " New execution with ID " + this.idTrade + ": " +
-                nameOfCompany + " " +
-                priceOfTrade + "RUB " +
-                volumeOfTrade + "pcs (orders ID " +
-                buyOrderId + " and " +
-                sellOrderId + ")";
+        return SIMPLE_DATE_FORMAT.format(date)
+                + " New execution with ID " + this.idTrade + ": "
+                + nameOfCompany + " "
+                + priceOfTrade + "RUB "
+                + volumeOfTrade + "pcs (orders ID "
+                + buyOrderId + " and "
+                + sellOrderId + ")";
     }
 
     private int calculateVolumeOfTrade(Order buyOrder, Order sellOrder) {
@@ -52,17 +52,5 @@ public class Trade {
             return sellOrder.getVolume();
         else
             return buyOrder.getVolume();
-    }
-
-    String getNameOfCompany() {
-        return nameOfCompany;
-    }
-
-    int getPriceOfTrade() {
-        return priceOfTrade;
-    }
-
-    int getVolumeOfTrade() {
-        return volumeOfTrade;
     }
 }

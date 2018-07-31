@@ -8,8 +8,6 @@ public class DataBase {
 
     private final Map<String, OrderBook> orderBooks = new HashMap<>();
 
-    public DataBase() {}
-
     public void addOrder(Order order) {
         String nameCompany = order.getCompany();
         if (orderBooks.containsKey(nameCompany)) {
