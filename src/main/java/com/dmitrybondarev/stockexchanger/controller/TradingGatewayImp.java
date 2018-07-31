@@ -39,11 +39,22 @@ public class TradingGatewayImp implements TradingGateway {
     public static void main(String[] args) {
         DataBase dataBase = new DataBase();
         TradeLedger tradeLedger = new TradeLedger();
-        MatchingEngine matchingEngine = new MatchingEngine(dataBase, tradeLedger);
 
+//      Create and start CLI Thread
+        Runnable cLIRunnable = new CLI(new TradingGatewayImp(dataBase));
+        Thread cLIThread = new Thread(cLIRunnable);
+        cLIThread.start();
+
+//      Create MachineEngine and start Thread with timer
+        MatchingEngine matchingEngine = new MatchingEngine(dataBase, tradeLedger);
         Timer timer = new Timer();
         timer.schedule(matchingEngine, 1000, 1000);
-        new CLI(new TradingGatewayImp(dataBase)).start();
+
+        try {
+            cLIThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         timer.cancel();
     }
 }

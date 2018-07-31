@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TimerTask;
+import java.util.concurrent.locks.Lock;
 
 /**
  * Balances the order books periodically.
@@ -19,17 +20,22 @@ public class MatchingEngine extends TimerTask {
 
     private TradeLedger tradeLedger;
 
+    private Lock dataBaseLock;
+
     MatchingEngine(DataBase dataBase, TradeLedger tradeLedger) {
         this.dataBase = dataBase;
         this.tradeLedger = tradeLedger;
+        this.dataBaseLock = dataBase.getLock();
     }
 
     @Override
     public void run() {
+        dataBaseLock.lock();
         Collection<OrderBook> orderBooks = dataBase.getOrderBooks();
         for (OrderBook orderBook: orderBooks) {
             matchOrdersInOrderBook(orderBook.getBuyOrders(), orderBook.getSellOrders());
         }
+        dataBaseLock.unlock();
     }
 
     private void matchOrdersInOrderBook(List<Order> buyOrders, List<Order> sellOrders) {

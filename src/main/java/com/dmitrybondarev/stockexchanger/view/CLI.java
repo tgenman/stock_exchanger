@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * Command Line Interface.
  */
-public class CLI {
+public class CLI implements Runnable {
 
     private Scanner scanner = new Scanner(System.in);
 
@@ -19,7 +19,8 @@ public class CLI {
         this.tradingGateway = tradingGateway;
     }
 
-    public void start() {
+    @Override
+    public void run() {
         System.out.println("STOCK EXCHANGER");
         System.out.println("Command can be: add, remove, exit");
         System.out.println();
