@@ -12,9 +12,14 @@ import java.util.TimerTask;
 
 public class MatchingEngine extends TimerTask {
 
-    private DataBase dataBase = DataBase.getDataBase();
+    private DataBase dataBase;
 
-    private TradeLedger tradeLedger = TradeLedger.getTradeLedger();
+    private TradeLedger tradeLedger;
+
+    public MatchingEngine(DataBase dataBase, TradeLedger tradeLedger) {
+        this.dataBase = dataBase;
+        this.tradeLedger = tradeLedger;
+    }
 
     @Override
     public void run() {

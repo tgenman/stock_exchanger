@@ -3,12 +3,9 @@ package com.dmitrybondarev.stockexchanger.controller;
 import com.dmitrybondarev.stockexchanger.model.DataBase;
 import com.dmitrybondarev.stockexchanger.model.Order;
 import com.dmitrybondarev.stockexchanger.model.OrderBook;
+import com.dmitrybondarev.stockexchanger.model.TradeLedger;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class MatchingEngineTest {
 
@@ -19,14 +16,17 @@ public class MatchingEngineTest {
         Order buyOrder2 = Order.createBuyOrder("test", 103, 70);
         Order sellOrder1 = Order.createSellOrder("test", 90, 100);
         Order sellOrder2 = Order.createSellOrder("test", 105, 50);
-        DataBase dataBase = DataBase.getDataBase();
+
+//      Initialization
+        DataBase dataBase = new DataBase();
         dataBase.addOrder(buyOrder1);
         dataBase.addOrder(buyOrder2);
         dataBase.addOrder(sellOrder1);
         dataBase.addOrder(sellOrder2);
 
 //      Test class
-        MatchingEngine matchingEngine = new MatchingEngine();
+        TradeLedger tradeLedger = new TradeLedger();
+        MatchingEngine matchingEngine = new MatchingEngine(dataBase, tradeLedger);
 
 //      run
         matchingEngine.run();
@@ -45,14 +45,17 @@ public class MatchingEngineTest {
         Order buyOrder2 = Order.createBuyOrder("test2", 103, 70);
         Order sellOrder1 = Order.createSellOrder("test2", 90, 500);
         Order sellOrder2 = Order.createSellOrder("test2", 105, 50);
-        DataBase dataBase = DataBase.getDataBase();
+
+//      Initialization
+        DataBase dataBase = new DataBase();
         dataBase.addOrder(buyOrder1);
         dataBase.addOrder(buyOrder2);
         dataBase.addOrder(sellOrder1);
         dataBase.addOrder(sellOrder2);
 
 //      Test class
-        MatchingEngine matchingEngine = new MatchingEngine();
+        TradeLedger tradeLedger = new TradeLedger();
+        MatchingEngine matchingEngine = new MatchingEngine(dataBase, tradeLedger);
 
 //      run
         matchingEngine.run();

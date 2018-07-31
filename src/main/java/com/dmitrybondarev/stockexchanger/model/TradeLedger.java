@@ -5,16 +5,9 @@ import java.util.List;
 
 public class TradeLedger {
 
-    private static TradeLedger tradeLedger;
-
     private final List<Trade> tradeLog = new ArrayList<>();
 
-    private TradeLedger() {}
-
-    public static TradeLedger getTradeLedger() {
-        if (tradeLedger == null) tradeLedger = new TradeLedger();
-        return tradeLedger;
-    }
+    public TradeLedger() {}
 
     public void addTrade(Trade trade) {
         System.out.println(trade.toString());

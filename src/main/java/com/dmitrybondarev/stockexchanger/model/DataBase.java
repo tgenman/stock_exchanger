@@ -6,16 +6,9 @@ import java.util.Map;
 
 public class DataBase {
 
-    private static DataBase dataBase;
-
     private final Map<String, OrderBook> orderBooks = new HashMap<>();
 
-    private DataBase() {}
-
-    public static DataBase getDataBase() {
-        if (dataBase == null) dataBase = new DataBase();
-        return dataBase;
-    }
+    public DataBase() {}
 
     public void addOrder(Order order) {
         String nameCompany = order.getCompany();

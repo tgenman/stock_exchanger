@@ -2,8 +2,6 @@ package com.dmitrybondarev.stockexchanger.model;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class OrderBook {
 
@@ -28,14 +26,12 @@ public class OrderBook {
     }
 
     void addOrderToOrderBook(Order order) {
-        boolean result = false;
         Action type = order.getActionOfOrder();
         if (type == Action.BUY)
-            result = buyOrders.add(order);
+            buyOrders.add(order);
         if (type == Action.SELL)
-            result = sellOrders.add(order);
-        if (result)
-            System.out.println("added " + order.toString());
+            sellOrders.add(order);
+        System.out.println("added " + order.toString());
     }
 
 //    void removeOrderFromOrderBook(Order order) {
@@ -50,6 +46,9 @@ public class OrderBook {
 //    }
 
 
+    public String getName() {
+        return name;
+    }
 }
 
 

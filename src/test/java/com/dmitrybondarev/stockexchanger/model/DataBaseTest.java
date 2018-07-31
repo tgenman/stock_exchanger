@@ -10,13 +10,13 @@ public class DataBaseTest {
     @Test
     public void testAddOrder() {
 //      Input values
-        Order order1 = Order.createBuyOrder("test1", 100, 100);
-        Order order2 = Order.createBuyOrder("test2", 100, 100);
-        Order order3 = Order.createSellOrder("tes3", 100, 100);
-        Order order4 = Order.createSellOrder("test1", 100, 100);
+        Order order1 = Order.createBuyOrder("test01", 100, 100);
+        Order order2 = Order.createBuyOrder("test02", 100, 100);
+        Order order3 = Order.createSellOrder("tes03", 100, 100);
+        Order order4 = Order.createSellOrder("test01", 100, 100);
 
 //      Test class
-        DataBase dataBase = DataBase.getDataBase();
+        DataBase dataBase = new DataBase();
 
 //      run
         dataBase.addOrder(order1);
