@@ -31,19 +31,21 @@ public class OrderBook {
             buyOrders.add(order);
         if (type == Action.SELL)
             sellOrders.add(order);
-        System.out.println("added " + order.toString());
     }
 
-//    void removeOrderFromOrderBook(Order order) {
-//        boolean result = false;
-//        Action type = order.getActionOfOrder();
-//        if (type == Action.BUY)
-//            result = buyOrders.remove(order);
-//        if (type == Action.SELL)
-//            result = sellOrders.remove(order);
-//        if (result)
-//            System.out.println("Order removed " + order.toString());
-//    }
+    Order removeOrderFromOrderBook(int id) {
+        for (Order order: buyOrders) {
+            if (order.getIdOrder() == id) {
+                return order;
+            }
+        }
+        for (Order order: sellOrders) {
+            if (order.getIdOrder() == id) {
+                return order;
+            }
+        }
+        return null;
+    }
 
 
     public String getName() {

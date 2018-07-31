@@ -2,6 +2,8 @@ package com.dmitrybondarev.stockexchanger.view;
 
 import com.dmitrybondarev.stockexchanger.controller.TradingGateway;
 import com.dmitrybondarev.stockexchanger.model.Action;
+import com.dmitrybondarev.stockexchanger.model.Order;
+
 import java.util.Scanner;
 
 public class CLI {
@@ -17,10 +19,13 @@ public class CLI {
     public void start() {
         System.out.println("STOCK EXCHANGER");
         System.out.println("Command can be: add, remove, exit");
-        System.out.println("Add pattern: Command Company Action Price Volume");
+        System.out.println();
+        System.out.println("add pattern: add Company Action Price Volume");
         System.out.println("Action can be: B, S");
         System.out.println("Price and Amount is Integer");
         System.out.println("Example: add Google B 100 50");
+        System.out.println();
+        System.out.println("remove pattern: remove Company ID");
 
         boolean isWorking = true;
         while (isWorking) {
@@ -35,7 +40,7 @@ public class CLI {
                         addCommand(query);
                         break;
                     case "remove":
-                        removeCommand();
+                        removeCommand(query);
                         break;
                     default:
                         System.out.println("Invalid query. Try again");
@@ -52,11 +57,19 @@ public class CLI {
         Action action = parseAction(query[2]);
         int price = Integer.parseInt(query[3]);
         int volume = Integer.parseInt(query[4]);
-        tradingGateway.addOrder(company, action, price, volume);
+        Order result = tradingGateway.addOrder(company, action, price, volume);
+        System.out.println("added " + result.toString());
     }
 
-    private void removeCommand() {
-        System.out.println("remove");
+    private void removeCommand(String[] query) {
+        String company = query[1];
+        int id = Integer.parseInt(query[2]);
+        Order result = tradingGateway.removeOrder(company, id);
+        if (result == null) {
+            System.out.println("Order ID = " + id + " wasn't found.");
+        } else {
+            System.out.println("Order ID = " + id + " was removed.");
+        }
     }
 
     private Action parseAction(String str) throws Exception {

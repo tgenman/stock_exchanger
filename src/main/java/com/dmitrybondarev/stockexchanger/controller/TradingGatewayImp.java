@@ -16,14 +16,21 @@ public class TradingGatewayImp implements TradingGateway {
         this.dataBase = dataBase;
     }
 
-    public void addOrder(String company, Action action, int price, int volume) {
-        Order order;
+    @Override
+    public Order addOrder(String company, Action action, int price, int volume) {
+        Order result;
         if (action == Action.BUY)
-            order = Order.createBuyOrder(company, price, volume);
+            result = Order.createBuyOrder(company, price, volume);
         else {
-            order = Order.createSellOrder(company, price, volume);
+            result = Order.createSellOrder(company, price, volume);
         }
-        dataBase.addOrder(order);
+        dataBase.addOrder(result);
+        return result;
+    }
+
+    @Override
+    public Order removeOrder(String company, int id) {
+        return dataBase.removeOrder(company, id);
     }
 
     public static void main(String[] args) {

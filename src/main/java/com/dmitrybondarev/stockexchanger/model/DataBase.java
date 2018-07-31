@@ -19,15 +19,11 @@ public class DataBase {
         }
     }
 
-//    public boolean removeOrder(Order order) {
-//        boolean result = false;
-//        if (orderBooks.containsKey(order.getCompany())) {
-//            OrderBook orderBook = orderBooks.get(order.getCompany());
-//            orderBook.removeOrderFromOrderBook(order);
-//            result = true;
-//        }
-//        return result;
-//    }
+
+
+    public Order removeOrder(String company, int id) {
+        return orderBooks.get(company).removeOrderFromOrderBook(id);
+    }
 
     public Collection<OrderBook> getOrderBooks() {
         return orderBooks.values();
