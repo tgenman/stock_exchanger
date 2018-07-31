@@ -9,20 +9,22 @@ public class DataBase {
     private final Map<String, OrderBook> orderBooks = new HashMap<>();
 
     public void addOrder(Order order) {
-        String nameCompany = order.getCompany();
-        if (orderBooks.containsKey(nameCompany)) {
-            orderBooks.get(nameCompany).addOrderToOrderBook(order);
+        String company = order.getCompany();
+        if (orderBooks.containsKey(company)) {
+            orderBooks.get(company).addOrderToOrderBook(order);
         } else {
-            OrderBook newOrderBook = new OrderBook(nameCompany);
+            OrderBook newOrderBook = new OrderBook(company);
             newOrderBook.addOrderToOrderBook(order);
-            orderBooks.put(nameCompany, newOrderBook);
+            orderBooks.put(company, newOrderBook);
         }
     }
 
-
-
-    public Order removeOrder(String company, int id) {
-        return orderBooks.get(company).removeOrderFromOrderBook(id);
+    public boolean removeOrder(String company, int id) {
+        boolean result = false;
+        if (orderBooks.containsKey(company)) {
+            result = orderBooks.get(company).removeOrderFromOrderBook(id);
+        }
+        return result;
     }
 
     public Collection<OrderBook> getOrderBooks() {

@@ -32,4 +32,45 @@ public class OrderBookTest {
         Assert.assertEquals(2, sellOrders.size());
     }
 
+    @Test
+    public void testRemoveOrdersToOrderBooksWhenOrderBookHaveOrder() {
+//      Input values
+        Order buyOrder1 = Order.createBuyOrder("test", 100, 100);
+        Order buyOrder2 = Order.createBuyOrder("test", 100, 100);
+
+//      Test class
+        OrderBook orderBook = new OrderBook("test");
+
+//      run
+        orderBook.addOrderToOrderBook(buyOrder1);
+        orderBook.addOrderToOrderBook(buyOrder2);
+        boolean result = orderBook.removeOrderFromOrderBook(buyOrder1.getId());
+
+//      assert
+        List<Order> buyOrders = orderBook.getBuyOrders();
+
+        Assert.assertTrue(result);
+        Assert.assertEquals(1, buyOrders.size());
+    }
+
+    @Test
+    public void testRemoveOrdersToOrderBooksWhenOrderBookHaveNotOrder() {
+//      Input values
+        Order buyOrder1 = Order.createBuyOrder("test", 100, 100);
+        Order buyOrder2 = Order.createBuyOrder("test", 100, 100);
+
+//      Test class
+        OrderBook orderBook = new OrderBook("test");
+
+//      run
+        orderBook.addOrderToOrderBook(buyOrder1);
+        orderBook.addOrderToOrderBook(buyOrder2);
+        boolean result = orderBook.removeOrderFromOrderBook(350);
+
+//      assert
+        List<Order> buyOrders = orderBook.getBuyOrders();
+
+        Assert.assertFalse(result);
+        Assert.assertEquals(2, buyOrders.size());
+    }
 }

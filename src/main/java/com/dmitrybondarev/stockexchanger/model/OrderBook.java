@@ -33,20 +33,19 @@ public class OrderBook {
             sellOrders.add(order);
     }
 
-    Order removeOrderFromOrderBook(int id) {
-        for (Order order: buyOrders) {
-            if (order.getIdOrder() == id) {
-                return order;
+    boolean removeOrderFromOrderBook(int id) {
+        for (Order current: buyOrders) {
+            if (current.getId() == id) {
+                return buyOrders.remove(current);
             }
         }
-        for (Order order: sellOrders) {
-            if (order.getIdOrder() == id) {
-                return order;
+        for (Order current: sellOrders) {
+            if (current.getId() == id) {
+                return sellOrders.remove(current);
             }
         }
-        return null;
+        return false;
     }
-
 
     public String getName() {
         return name;

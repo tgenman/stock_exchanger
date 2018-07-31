@@ -32,7 +32,7 @@ public class Order implements Comparable<Order> {
         return new Order(company, Action.SELL, price, volume);
     }
 
-    public int getIdOrder() {
+    public int getId() {
         return idOrder;
     }
 

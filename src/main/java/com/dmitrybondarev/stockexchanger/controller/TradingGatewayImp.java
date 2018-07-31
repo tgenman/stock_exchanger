@@ -29,7 +29,7 @@ public class TradingGatewayImp implements TradingGateway {
     }
 
     @Override
-    public Order removeOrder(String company, int id) {
+    public boolean removeOrder(String company, int id) {
         return dataBase.removeOrder(company, id);
     }
 

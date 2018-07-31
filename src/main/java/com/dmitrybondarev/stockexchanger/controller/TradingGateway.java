@@ -7,5 +7,5 @@ public interface TradingGateway {
 
     Order addOrder(String company, Action action, int price, int volume);
 
-    Order removeOrder(String company, int id);
+    boolean removeOrder(String company, int id);
 }

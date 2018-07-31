@@ -29,4 +29,39 @@ public class DataBaseTest {
         Assert.assertEquals(3, result.size());
     }
 
+    @Test
+    public void testRemoveOrderWhenDatabaseHaveCompany() {
+//      Input values
+        Order order1 = Order.createBuyOrder("test", 100, 100);
+        Order order2 = Order.createBuyOrder("test", 100, 100);
+
+//      Test class
+        DataBase dataBase = new DataBase();
+
+//      run
+        dataBase.addOrder(order1);
+        dataBase.addOrder(order2);
+        boolean result = dataBase.removeOrder("test", order1.getId());
+
+//      assert
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void testRemoveOrderWhenDatabaseHaveNotCompany() {
+//      Input values
+        Order order1 = Order.createBuyOrder("test", 100, 100);
+        Order order2 = Order.createBuyOrder("test", 100, 100);
+
+//      Test class
+        DataBase dataBase = new DataBase();
+
+//      run
+        dataBase.addOrder(order1);
+        dataBase.addOrder(order2);
+        boolean result = dataBase.removeOrder("tests", order1.getId());
+
+//      assert
+        Assert.assertFalse(result);
+    }
 }

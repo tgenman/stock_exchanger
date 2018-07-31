@@ -29,8 +29,8 @@ public class Trade {
         this.idTrade = counterIDTrade++;
         this.date = new Date();
         this.nameOfCompany = buyOrder.getCompany();
-        this.buyOrderId = buyOrder.getIdOrder();
-        this.sellOrderId = sellOrder.getIdOrder();
+        this.buyOrderId = buyOrder.getId();
+        this.sellOrderId = sellOrder.getId();
         this.priceOfTrade = buyOrder.getPrice();
         this.volumeOfTrade = calculateVolumeOfTrade(buyOrder, sellOrder);
         buyOrder.setVolume(buyOrder.getVolume() - volumeOfTrade);
