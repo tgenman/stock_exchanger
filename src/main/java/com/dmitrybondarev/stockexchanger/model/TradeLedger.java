@@ -14,4 +14,8 @@ public class TradeLedger {
         System.out.println(trade.toString());
         tradeLog.add(trade);
     }
+
+    public List<Trade> getTradeLog() {
+        return tradeLog;
+    }
 }

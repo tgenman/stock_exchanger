@@ -3,6 +3,7 @@ package com.dmitrybondarev.stockexchanger.model;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Test of OrderBook class.
@@ -27,8 +28,8 @@ public class OrderBookTest {
         orderBook.addOrderToOrderBook(sellOrder2);
 
 //      assert
-        List<Order> buyOrders = orderBook.getBuyOrders();
-        List<Order> sellOrders = orderBook.getSellOrders();
+        Set<Order> buyOrders = orderBook.getBuyOrders();
+        Set<Order> sellOrders = orderBook.getSellOrders();
 
         Assert.assertEquals(2, buyOrders.size());
         Assert.assertEquals(2, sellOrders.size());
@@ -49,7 +50,7 @@ public class OrderBookTest {
         boolean result = orderBook.removeOrderFromOrderBook(buyOrder1.getId());
 
 //      assert
-        List<Order> buyOrders = orderBook.getBuyOrders();
+        Set<Order> buyOrders = orderBook.getBuyOrders();
 
         Assert.assertTrue(result);
         Assert.assertEquals(1, buyOrders.size());
@@ -70,7 +71,7 @@ public class OrderBookTest {
         boolean result = orderBook.removeOrderFromOrderBook(350);
 
 //      assert
-        List<Order> buyOrders = orderBook.getBuyOrders();
+        Set<Order> buyOrders = orderBook.getBuyOrders();
 
         Assert.assertFalse(result);
         Assert.assertEquals(2, buyOrders.size());

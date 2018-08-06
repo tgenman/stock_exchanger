@@ -38,7 +38,7 @@ public class Trade {
         this.nameOfCompany = buyOrder.getCompany();
         this.buyOrderId = buyOrder.getId();
         this.sellOrderId = sellOrder.getId();
-        this.priceOfTrade = buyOrder.getPrice();
+        this.priceOfTrade = sellOrder.getPrice();
         this.volumeOfTrade = calculateVolumeOfTrade(buyOrder, sellOrder);
         buyOrder.setVolume(buyOrder.getVolume() - volumeOfTrade);
         sellOrder.setVolume(sellOrder.getVolume() - volumeOfTrade);
@@ -59,5 +59,9 @@ public class Trade {
             return sellOrder.getVolume();
         else
             return buyOrder.getVolume();
+    }
+
+    public int getPriceOfTrade() {
+        return priceOfTrade;
     }
 }

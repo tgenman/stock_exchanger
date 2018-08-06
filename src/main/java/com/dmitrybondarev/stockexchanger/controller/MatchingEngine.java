@@ -8,6 +8,7 @@ import com.dmitrybondarev.stockexchanger.model.TradeLedger;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.TimerTask;
 import java.util.concurrent.locks.Lock;
 
@@ -38,7 +39,7 @@ public class MatchingEngine extends TimerTask {
         dataBaseLock.unlock();
     }
 
-    private void matchOrdersInOrderBook(List<Order> buyOrders, List<Order> sellOrders) {
+    private void matchOrdersInOrderBook(Set<Order> buyOrders, Set<Order> sellOrders) {
         if (buyOrders.isEmpty()
                 || sellOrders.isEmpty()) return;
 

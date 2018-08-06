@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Order for buying or selling stocks.
  */
-public class Order implements Comparable<Order> {
+public class Order {
 
     private static int counterIdOrder = 1;
 
@@ -59,19 +59,6 @@ public class Order implements Comparable<Order> {
         this.volume = volume;
     }
 
-    @Override
-    public int compareTo(Order o) {
-        int inputPrice = o.getPrice();
-        int result;
-        if (this.price < inputPrice) {
-            result = 1;
-        } else if (this.price == inputPrice) {
-            result = 0;
-        } else {
-            result = -1;
-        }
-        return result;
-    }
 
     @Override
     public boolean equals(Object o) {
