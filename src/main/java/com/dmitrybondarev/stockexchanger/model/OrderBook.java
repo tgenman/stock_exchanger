@@ -25,7 +25,7 @@ public class OrderBook {
                 (order1, order2) -> {
                     if (order1.getId() == order2.getId()) {
                         return 0;
-                    } else if (order1.getPrice() < order2.getPrice()) {
+                    } else if (order1.getPrice() > order2.getPrice()) {
                         return  -1;
                     } else {
                         return  1;
@@ -38,7 +38,7 @@ public class OrderBook {
                 (order1, order2) -> {
                     if (order1.getId() == order2.getId()) {
                         return 0;
-                    } else if (order1.getPrice() > order2.getPrice()) {
+                    } else if (order1.getPrice() < order2.getPrice()) {
                         return  -1;
                     } else {
                         return  1;
